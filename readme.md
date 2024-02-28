@@ -1,4 +1,3 @@
-```markdown
 # Guía de Uso
 
 ## Flask
