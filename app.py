@@ -27,7 +27,7 @@ def init():
     return jsonify({"message": f"'{initUser(token, password)}'."}), 200
 
 @app.route('/api/login/', methods=['POST'])
-def init():
+def login():
     print("Login usuari")
     email = request.form.get('email')
     if not email:
