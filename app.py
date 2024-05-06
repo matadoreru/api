@@ -22,7 +22,7 @@ def init():
     if not password:
         return jsonify({'error': 'El paràmetre "password" és obligatori.'}), 400
 
-    return jsonify({"message": f"Usuari inicialitzat amb exit. '{initUser(token, password)}'."}), 200
+    return jsonify({"message": f"'{initUser(token, password)}'."}), 200
 
 
 
