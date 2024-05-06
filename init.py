@@ -19,7 +19,7 @@ def initUser(token:str, password:str):
             user["salt"] = salt
 
             update_json_file(users, "db.json")
-            return "Usuario actualizado con éxito."
+            return "Usuario actualizado con exito."
 
     return "Usuario no encontrado para el token especificado."
 
