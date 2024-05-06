@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from register import *
+from init import *
 app = Flask(__name__)
 
 @app.route('/api/register/', methods=['POST'])
@@ -11,6 +12,20 @@ def register():
     registerUser(email)
 
     return jsonify({"message": f"Usuari registrat amb l'email '{email}'."}), 200
+
+@app.route('/api/init/', methods=['POST'])
+def init():
+    print("Inicialitzar a l'usuari")
+    token = request.form.get('token')
+    if not token:
+        return jsonify({'error': 'El paràmetre "token" és obligatori.'}), 400
+    password = request.form.get('password')
+    if not password:
+        return jsonify({'error': 'El paràmetre "password" és obligatori.'}), 400
+
+    return jsonify({"message": f"Usuari inicialitzat amb exit. '{initUser(token, password)}'."}), 200
+
+
 
 
 if __name__ == '__main__':
