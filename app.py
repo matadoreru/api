@@ -1,10 +1,15 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from register import *
 from init import *
 from login import *
 from verify import * 
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def home():
+    return render_template('register.html')
 
 @app.route('/api/register/', methods=['POST'])
 def register():
