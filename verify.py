@@ -23,5 +23,5 @@ def verificar_token(token_bearer, clave_publica):
     except jwt.ExpiredSignatureError:
         return "El token ha expirado."
     except jwt.InvalidTokenError:
-        return "Token inválido."
+        return "Token invalido."
     return None
