@@ -10,7 +10,7 @@ def loginUser(email:str, password:str):
         token = generate_token(email, password)
         return 'Token Bearer generat: ' + token
     else:
-        return 'Credencials no vàlides.'
+        return 'Credencials no valides.'
 
 def load_users(filename):
     with open(filename, 'r') as file:
