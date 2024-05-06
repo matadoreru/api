@@ -1,4 +1,3 @@
-import argparse
 import json
 from core import hash_password, hash_passwordSalt
 import jwt
