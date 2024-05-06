@@ -7,9 +7,22 @@ from verify import *
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/register')
 def home():
     return render_template('register.html')
+
+@app.route('/init')
+def home():
+    return render_template('init.html')
+
+@app.route('/login')
+def home():
+    return render_template('login.html')
+
+@app.route('/verify')
+def home():
+    return render_template('verify.html')
+
 
 @app.route('/api/register/', methods=['POST'])
 def register():
