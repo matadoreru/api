@@ -8,19 +8,19 @@ app = Flask(__name__)
 
 
 @app.route('/register')
-def home():
+def registerHome():
     return render_template('register.html')
 
 @app.route('/init')
-def home():
+def initHome():
     return render_template('init.html')
 
 @app.route('/login')
-def home():
+def loginHome():
     return render_template('login.html')
 
 @app.route('/verify')
-def home():
+def verifyHome():
     return render_template('verify.html')
 
 
