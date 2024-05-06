@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from register import *
 from init import *
+from login import *
+
 app = Flask(__name__)
 
 @app.route('/api/register/', methods=['POST'])
@@ -24,7 +26,17 @@ def init():
 
     return jsonify({"message": f"'{initUser(token, password)}'."}), 200
 
+@app.route('/api/login/', methods=['POST'])
+def init():
+    print("Login usuari")
+    email = request.form.get('email')
+    if not email:
+        return jsonify({'error': 'El paràmetre "email" és obligatori.'}), 400
+    password = request.form.get('password')
+    if not password:
+        return jsonify({'error': 'El paràmetre "password" és obligatori.'}), 400
 
+    return jsonify({"message": f"'{loginUser(email, password)}'."}), 200
 
 
 if __name__ == '__main__':

@@ -3,6 +3,15 @@ import json
 from core import hash_password, hash_passwordSalt
 import jwt
 
+def loginUser(email:str, password:str):
+    users = load_users('db.json')
+
+    if verify_credentials(email, password, users):
+        token = generate_token(email, password)
+        return 'Token Bearer generat: ' + token
+    else:
+        return 'Credencials no vàlides.'
+
 def load_users(filename):
     with open(filename, 'r') as file:
         data = json.load(file)
@@ -24,21 +33,3 @@ def generate_token(email, password, private_key_path='private.pem'):
 
     token = jwt.encode({'email': email, 'password': password}, private_key, algorithm='RS256')
     return token
-
-def main():
-    parser = argparse.ArgumentParser(description='Genera un token Bearer utilitzant JWT amb encriptació de contrasenya.')
-    parser.add_argument('-e', '--email', required=True, help='Correu electrònic')
-    parser.add_argument('-p', '--password', required=True, help='Contrasenya')
-
-    args = parser.parse_args()
-
-    users = load_users('db.json')
-
-    if verify_credentials(args.email, args.password, users):
-        token = generate_token(args.email, args.password)
-        print(f'Token Bearer generat:\n{token}')
-    else:
-        print('Credencials no vàlides.')
-
-if __name__ == '__main__':
-    main()
