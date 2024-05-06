@@ -22,7 +22,7 @@ def verificar_token(token_bearer, clave_publica):
         token_decodificado = jwt.decode(token_bearer, clave_publica, algorithms=['RS256'])
         return token_decodificado
     except jwt.ExpiredSignatureError:
-        print("El token ha expirado.")
+        return "El token ha expirado."
     except jwt.InvalidTokenError:
-        print("Token inválido.")
+        return "Token inválido."
     return None
