@@ -20,4 +20,4 @@ def registerUser(email:str):
     with open('db.json', 'w') as json_file:
         json.dump(data, json_file, indent=4)
 
-    print(f"Se ha registrado el usuario con el correo electrónico '{email}' y el token '{token}'.")
+    return "Correo electrónico '{email}' y el token '{token}'."

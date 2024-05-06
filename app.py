@@ -9,9 +9,8 @@ def register():
     email = request.form.get('email')
     if not email:
         return jsonify({'error': 'El paràmetre "email" és obligatori.'}), 400
-    registerUser(email)
 
-    return jsonify({"message": f"Usuari registrat amb l'email '{email}'."}), 200
+    return jsonify({"message": f"Usuari registrat: '{registerUser(email)}'."}), 200
 
 @app.route('/api/init/', methods=['POST'])
 def init():
